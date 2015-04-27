@@ -44,7 +44,7 @@ mkdir -p ./$TARGET/stage2/bootstrap
 # for lib in ./$HOST/stage2/lib/*.so; do
 #     lib=$(echo "$lib" | grep -Eo "lib[a-z_]+-4e7c5e5c.so" | sed -e "s/-.*$//")
 
-for lib in libfmt_macros libarena libflate libgetopts libgraphviz liblog librbml libsyntax librustc_llvm libserialize libstd libterm libtest librustc_back librustc librustc_borrowck librustc_lint librustc_privacy librustc_resolve librustc_trans librustc_typeck librustc_driver; do
+for lib in libfmt_macros libarena libflate libgetopts libgraphviz liblog librbml libsyntax librustc_llvm libserialize libstd libterm libtest librustc_back librustc_data_structures librustc librustc_borrowck librustc_lint librustc_privacy librustc_resolve librustc_trans librustc_typeck librustc_driver; do
     $RUSTC --out-dir ./$TARGET/stage2/lib src/$lib/lib.rs
 
     case $lib in
