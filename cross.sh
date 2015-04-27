@@ -29,7 +29,7 @@ LINKERFLAG="-C linker=powerpc-linux-gnu-gcc" # Set this only if you need to use 
 export CFG_LLVM_LINKAGE_FILE=`pwd`/$HOST/rt/llvmdeps.rs
 export LD_LIBRARY_PATH=./$HOST/stage2/lib
 _RUSTC=./$HOST/stage2/bin/rustc
-RUSTC="$_RUSTC $LINKERFLAG --target $TARGET -L $TARGET/rt -L $TARGET/stage2/bootstrap -L $TARGET/llvm/Release+Asserts/lib"
+RUSTC="$_RUSTC $LINKERFLAG -C prefer-dynamic --cfg stage2 --target $TARGET -L $TARGET/rt -L $TARGET/stage2/bootstrap -L $TARGET/llvm/Release+Asserts/lib"
 
 # Setup for the llvm build we'll inject
 mkdir -p ./$TARGET/llvm/Release+Asserts/lib
